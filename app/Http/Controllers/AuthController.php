@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -30,19 +30,17 @@ class AuthController extends Controller
             ]
         );
 
-        // get user input
-        $username = $request->input('text_username');
-        $password = $request->input('text_password');
+        // get todos os usuarios do banco de dados
+        // $users = User::all()->toArray();
 
-        // test database connection
-        try{
-            DB::connection()->getPdo();
-            echo 'Connection success';
-        } catch(\PDOException $e){
-            echo 'Connection failed: ' . $e->getMessage();
-        }
+        // como uma instancia de um objeto da classe Models\User
 
-        echo 'FIM';
+        $userModel = new User();
+        $users = $userModel->all()->toArray();
+
+        echo '<pre>';
+        print_r($users);
+        echo '</pre>';
     }
 
     public function logout()

@@ -14,8 +14,8 @@ Route::middleware([CheckIsNotLogged::class])->group(function() {
 
 // Rotas acessíveis somente quando o usuario estiver logado
 Route::middleware([CheckIsLogged::class])->group(function(){
-    Route::get('/', [MainController::class, 'index']);
-    Route::get('/newnote', [MainController::class, 'newNote']);
-    Route::get('/logout', [AuthController::class, 'logout']);
+    Route::get('/', [MainController::class, 'index'])->name('home');
+    Route::get('/newnote', [MainController::class, 'newNote'])->name('new');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 

@@ -27,16 +27,19 @@ class MainController extends Controller
 
     public function editNote($id)
     {
-        try {
-            $id = Crypt::decrypt($id);
-        } catch (DecryptException $e) {
-            return redirect()->route('home');
-        }
+        $id = $this->descryptId($id);
 
         echo "Estou editando a nota com id: " . $id;
     }
 
     public function deleteNote($id)
+    {
+        $id = $this->descryptId($id);
+        
+        echo "Estou editando a nota com id: " . $id;
+    }
+
+    private function descryptId($id)
     {
         try {
             $id = Crypt::decrypt($id);
@@ -44,6 +47,6 @@ class MainController extends Controller
             return redirect()->route('home');
         }
 
-        echo "Estou editando a nota com id: " . $id;
+        return $id;
     }
 }

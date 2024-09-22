@@ -8,7 +8,10 @@ class MainController extends Controller
 {
     public function index()
     {
-        echo "Estou no index";
+        //carrega notas do usuario
+
+        // exibe a view home
+        return view('home');
     }
 
     public function newNote()

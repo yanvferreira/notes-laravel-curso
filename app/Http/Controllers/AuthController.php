@@ -66,7 +66,8 @@ class AuthController extends Controller
             ]
         ]);
 
-        echo 'Login com sucesso!';
+        // redireciona para home
+        return redirect()->to('/');
     }
 
     public function logout()

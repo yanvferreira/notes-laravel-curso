@@ -23,7 +23,7 @@
                 <!-- notes are available -->
                 <div class="d-flex justify-content-end mb-3">
                     <a href="{{ route('new') }}" class="btn btn-secondary px-3">
-                        <i class="fa-regular fa-pen-to-square me-2"></i>New Note
+                        <i class="fa-regular fa-pen-to-square me-2"></i>Nova Nota
                     </a>
                 </div>
 

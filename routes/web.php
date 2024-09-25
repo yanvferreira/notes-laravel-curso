@@ -17,8 +17,10 @@ Route::middleware([CheckIsLogged::class])->group(function(){
     Route::get('/', [MainController::class, 'index'])->name('home');
     Route::get('/newNote', [MainController::class, 'newNote'])->name('new');
     Route::post('/newNoteSubmit', [MainController::class, 'newNoteSubmit'])->name(('newNoteSubmit'));
+
     //editar uma nota
     Route::get('/editNote/{id}', [MainController::class, 'editNote'])->name('editar');
+    Route::get('/editNoteSubmit', [MainController::class, 'editNoteSubmit'])->name('editNoteSubmit');
 
     //deletar uma nota
     Route::get('/deleteNote/{id}', [MainController::class, 'deleteNote'])->name('deletar');

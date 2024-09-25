@@ -45,7 +45,7 @@ class MainController extends Controller
         );
 
         // pegar id do usuario
-$id = session(('user.id'));
+        $id = session(('user.id'));
 
 
         // criar uma nova nota
@@ -65,7 +65,11 @@ $id = session(('user.id'));
         // $id = $this->decryptId($id);
         $id = Operations::decryptId($id);
 
-        echo "Estou editando a nota com id: " . $id;
+        // carregar notas
+        $nota = Note::find($id);
+
+        // exibir a view de edição
+        return view('edit_note', ['nota' => $nota]);
     }
 
     public function deleteNote($id)
@@ -74,5 +78,4 @@ $id = session(('user.id'));
 
         echo "Estou editando a nota com id: " . $id;
     }
-
 }
